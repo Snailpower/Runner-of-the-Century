@@ -34,36 +34,16 @@ class ApplicationMain {
 		types.push (lime.Assets.AssetType.TEXT);
 		
 		
-		urls.push ("assets/images/button.png");
+		urls.push ("assets/images/background.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("assets/images/foreground.png");
 		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
 		urls.push ("assets/images/images-go-here.txt");
 		types.push (lime.Assets.AssetType.TEXT);
-		
-		
-		urls.push ("assets/images/levelselect.png");
-		types.push (lime.Assets.AssetType.IMAGE);
-		
-		
-		urls.push ("assets/images/messedupmushroom.png");
-		types.push (lime.Assets.AssetType.IMAGE);
-		
-		
-		urls.push ("assets/images/messedupturtle.png");
-		types.push (lime.Assets.AssetType.IMAGE);
-		
-		
-		urls.push ("assets/images/options.png");
-		types.push (lime.Assets.AssetType.IMAGE);
-		
-		
-		urls.push ("assets/images/overview.png");
-		types.push (lime.Assets.AssetType.IMAGE);
-		
-		
-		urls.push ("assets/images/titlescreen.png");
-		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
 		urls.push ("assets/music/music-goes-here.txt");
@@ -275,11 +255,11 @@ class ApplicationMain {
 		
 		config = {
 			
-			build: "71",
+			build: "16",
 			company: "Tom",
-			file: "RunneroftheCentury",
+			file: "parralaxtest",
 			fps: 60,
-			name: "Runner of the Century",
+			name: "parralax test",
 			orientation: "",
 			packageName: "com.example.myapp",
 			version: "0.0.1",
@@ -293,13 +273,13 @@ class ApplicationMain {
 					display: 0,
 					fullscreen: false,
 					hardware: true,
-					height: 720,
+					height: 480,
 					parameters: "{}",
 					resizable: true,
 					stencilBuffer: true,
-					title: "Runner of the Century",
+					title: "parralax test",
 					vsync: true,
-					width: 1280,
+					width: 640,
 					x: null,
 					y: null
 				},
@@ -317,7 +297,7 @@ class ApplicationMain {
 		
 		#if (js && html5)
 		#if (munit || utest)
-		openfl.Lib.embed (null, 1280, 720, "000000");
+		openfl.Lib.embed (null, 640, 480, "000000");
 		#end
 		#else
 		create ();

@@ -22,6 +22,7 @@
 --macro flixel.system.macros.FlxDefines.run()
 -swf-lib export/flash/obj/assets.swf
 -swf-version 11.8
--swf export/flash/bin/RunneroftheCentury.swf
--swf-header 1280:720:60:000000
+-swf export/flash/bin/parralaxtest.swf
+-swf-header 640:480:60:000000
 -cp export/flash/haxe
+-D final
