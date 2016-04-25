@@ -38,6 +38,10 @@ class ApplicationMain {
 		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
+		urls.push ("assets/images/huntersBG.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
 		urls.push ("assets/images/images-go-here.txt");
 		types.push (lime.Assets.AssetType.TEXT);
 		
@@ -275,7 +279,7 @@ class ApplicationMain {
 		
 		config = {
 			
-			build: "71",
+			build: "103",
 			company: "Tom",
 			file: "RunneroftheCentury",
 			fps: 60,
