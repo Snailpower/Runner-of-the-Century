@@ -1,0 +1,8 @@
+<level width="1920" height="480">
+  <background tileset="Background" exportMode="CSV">0,0</background>
+  <floor tileset="floor" exportMode="CSV">-1,-1
+-1,-1
+-1,-1
+-1,-1
+0,0</floor>
+</level>
