@@ -79,6 +79,7 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		
 		
+		
 		openfl.text.Font.registerFont (__ASSET__OPENFL__flixel_fonts_nokiafc22_ttf);
 		openfl.text.Font.registerFont (__ASSET__OPENFL__flixel_fonts_monsterrat_ttf);
 		
@@ -139,6 +140,8 @@ class DefaultAssetLibrary extends AssetLibrary {
 		type.set ("assets/images/fg720.png", AssetType.IMAGE);
 		className.set ("assets/images/ground.png", __ASSET__assets_images_ground_png);
 		type.set ("assets/images/ground.png", AssetType.IMAGE);
+		className.set ("assets/images/HG_Icon.png", __ASSET__assets_images_hg_icon_png);
+		type.set ("assets/images/HG_Icon.png", AssetType.IMAGE);
 		className.set ("assets/images/huntersBG.png", __ASSET__assets_images_huntersbg_png);
 		type.set ("assets/images/huntersBG.png", AssetType.IMAGE);
 		className.set ("assets/images/images-go-here.txt", __ASSET__assets_images_images_go_here_txt);
@@ -285,6 +288,10 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		type.set (id, AssetType.IMAGE);
 		id = "assets/images/ground.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
+		id = "assets/images/HG_Icon.png";
 		path.set (id, id);
 		
 		type.set (id, AssetType.IMAGE);
@@ -538,6 +545,9 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		className.set ("assets/images/ground.png", __ASSET__assets_images_ground_png);
 		type.set ("assets/images/ground.png", AssetType.IMAGE);
+		
+		className.set ("assets/images/HG_Icon.png", __ASSET__assets_images_hg_icon_png);
+		type.set ("assets/images/HG_Icon.png", AssetType.IMAGE);
 		
 		className.set ("assets/images/huntersBG.png", __ASSET__assets_images_huntersbg_png);
 		type.set ("assets/images/huntersBG.png", AssetType.IMAGE);
@@ -1344,6 +1354,7 @@ class DefaultAssetLibrary extends AssetLibrary {
 @:keep @:bind #if display private #end class __ASSET__assets_images_character_sheet_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_images_fg720_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_images_ground_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__assets_images_hg_icon_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_images_huntersbg_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_images_images_go_here_txt extends flash.utils.ByteArray { }
 @:keep @:bind #if display private #end class __ASSET__assets_images_levelonebg_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
@@ -1426,6 +1437,7 @@ class DefaultAssetLibrary extends AssetLibrary {
 
 
 
+
 @:keep #if display private #end class __ASSET__flixel_fonts_nokiafc22_ttf extends lime.text.Font { public function new () { super (); name = "Nokia Cellphone FC Small"; } } 
 @:keep #if display private #end class __ASSET__flixel_fonts_monsterrat_ttf extends lime.text.Font { public function new () { super (); name = "Monsterrat"; } } 
 
@@ -1479,6 +1491,7 @@ class DefaultAssetLibrary extends AssetLibrary {
 @:image("assets/images/character_sheet.png") #if display private #end class __ASSET__assets_images_character_sheet_png extends lime.graphics.Image {}
 @:image("assets/images/fg720.png") #if display private #end class __ASSET__assets_images_fg720_png extends lime.graphics.Image {}
 @:image("assets/images/ground.png") #if display private #end class __ASSET__assets_images_ground_png extends lime.graphics.Image {}
+@:image("assets/images/HG_Icon.png") #if display private #end class __ASSET__assets_images_hg_icon_png extends lime.graphics.Image {}
 @:image("assets/images/huntersBG.png") #if display private #end class __ASSET__assets_images_huntersbg_png extends lime.graphics.Image {}
 @:file("assets/images/images-go-here.txt") #if display private #end class __ASSET__assets_images_images_go_here_txt extends lime.utils.Bytes {}
 @:image("assets/images/LevelOneBG.png") #if display private #end class __ASSET__assets_images_levelonebg_png extends lime.graphics.Image {}
