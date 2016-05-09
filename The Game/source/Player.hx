@@ -11,11 +11,13 @@ import flixel.util.FlxColor;
  */
 class Player extends FlxObject
 {
-	public var character : FlxSprite;	
+	public var character : FlxSprite;
+	private var _moving : Bool;
+	private var _active:Bool = true;
+	private var _lastAnimationSide:String;
 	
 	var runningSpeed = 200;
 	var jumpSpeed = 100;
-	
 	
 
 	public function new() 
@@ -23,14 +25,32 @@ class Player extends FlxObject
 		super();
 		character= new FlxSprite (200,200);
 		character.loadGraphic("assets/images/character_sheet.png", true, 64, 64);
-		character.animation.add("stand", [0], 30, true, false, false);
-		character.animation.play("stand");
+		
+		character.maxVelocity.x = 200;
 		character.updateHitbox();
-		character.acceleration.y = 200;
-		character.drag.set(300,500);
+		
+		//Gravity
+		character.acceleration.y = 300;
+		
+		//Horizontal Drag
+		character.drag.set(600, 500);
+		
 		character.solid = true;
 		this.solid = true;
 		
+		animations();
+	}
+	
+	public function animations()
+	{
+		character.animation.add("standRight", [0], 30, true, false, false);
+		character.animation.add("standLeft", [0], 30, true, true, false);
+		character.animation.add("walk_left", [1, 2, 3, 4, 5, 6, 7, 8], 15, true, true, false);
+		character.animation.add("walk_right", [1, 2, 3, 4, 5, 6, 7, 8], 15, true, false, false);
+		character.animation.add("jump_right", [9, 10, 11, 12, 13, 0], 15, false, false, false);
+		character.animation.add("jump_left", [9, 10, 11, 12, 13, 0], 15, false, true, false);
+		character.animation.add("fall_right", [12], 15, false, false, false);
+		character.animation.add("fall_left", [12], 15, false, true, false);
 	}
 	
 	
@@ -39,62 +59,75 @@ class Player extends FlxObject
 		
 		character.acceleration.x = 0;
 		
-		
 		//character.x = this.x - 150;
 		//character.y = this.y - 120;
 		//
-			
-		if (FlxG.keys.pressed.LEFT)
+		if (_active) 
 		{
-			character.acceleration.x = -70;
+			if (FlxG.keys.pressed.LEFT) 
+			{
+			character.acceleration.x = -100;
+			}
 			
-			character.animation.stop;
-			character.animation.add("walk_left", [1, 2, 3, 4, 5, 6, 7, 8], 30, true, true, false);
-			character.animation.play("walk_left");
+			else if (FlxG.keys.pressed.RIGHT) 
+			{
+				character.acceleration.x = 100;
+				character.flipX = false;
+			}
+			
+			if (FlxG.keys.anyPressed(["LEFT"]))
+			{
+				character.animation.play("walk_left");
+				_moving = true;
+				_lastAnimationSide = "Left";
+			}
+		
+			else if (FlxG.keys.anyPressed(["RIGHT"]))
+			{
+				character.animation.play("walk_right");
+				_moving = true;
+				_lastAnimationSide = "Right";
+			}
+		
+			else if (FlxG.keys.pressed.UP && character.velocity.y >-5 && character.velocity.x == 0)
+			{
+				
+				_moving = true;
+				
+				switch (_lastAnimationSide) 
+				{
+					case "Right":	character.animation.play("jump_right");
+					case "Left"	:	character.animation.play("jump_left");
+						
+				}
+			
+			}
+			
+			if (character.velocity.y >0) 
+			{
+				switch (_lastAnimationSide) 
+				{
+					case "Right":	character.animation.play("fall_right");
+					case "Left"	:	character.animation.play("fall_left");
+				}
+			}
+		
+			if (FlxG.keys.pressed.UP && character.velocity.y == 0) 
+			{
+				character.velocity.y = -130;
+			}
+			
+			if (character.velocity.x == 0 && character.velocity.y == 0) 
+			{
+				_moving = false;
+				switch (_lastAnimationSide) 
+				{
+					case "Right":	character.animation.play("standRight");
+					case "Left":	character.animation.play("standLeft");
+				}
+			}
 		}
 		
-		else if (FlxG.keys.pressed.RIGHT)
-		{
-			character.acceleration.x = 70;
-			character.flipX = false;
-			character.animation.stop;
-			character.animation.add("walk_right", [1, 2, 3, 4, 5, 6, 7, 8], 30, true, false, false);
-			character.animation.play("walk_right");
-			
-		}
-		
-		if (FlxG.keys.pressed.UP && character.velocity.y <5 && FlxG.keys.pressed.RIGHT)
-		{
-			character.velocity.y = -130;
-			
-			character.animation.stop;
-			character.animation.add("jump_right", [9, 10, 11, 12, 13], 15, false, false, false);
-			character.animation.play("jump_right");
-			
-		}
-		
-		if (FlxG.keys.pressed.UP && character.velocity.y <5 && FlxG.keys.pressed.LEFT)
-		{
-			character.velocity.y = -130;
-			
-			character.animation.stop;
-			character.animation.add("jump_left", [9, 10, 11, 12, 13], 15, false, true, false);
-			character.animation.play("jump_left");
-			
-		}
-		
-		if (FlxG.keys.pressed.UP && character.velocity.y <5)
-		{
-			character.velocity.y = -130;
-			
-		}
-		
-		if (character.velocity.y >5) 
-		{
-			character.animation.stop;
-			character.animation.add("jump_up", [9, 10, 11, 12, 13], 15, false, false, false);
-			character.animation.play("jump_up");
-		}
 		
 		
 		super.update(elapsed);
