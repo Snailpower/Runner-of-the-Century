@@ -15,12 +15,18 @@ class MenuState extends FlxState
 {	
 	private var bg:FlxSprite;
 	private var fg:FlxSprite;
+	private var btn_right:FlxSprite;
+	private var btn_left:FlxSprite;
+	private var prof:FlxSprite;
+	
 	private var level_1:FlxButton;
 	private var centerCam:FlxCamera;
 	private var scrollTimer: FlxTimer = new FlxTimer();
 	private var cameraMovement: Bool = false;
 	private var amountToMove : Float = 5;
 	private var delayTimer : Timer;
+	
+	
 	override public function create():Void
 	{
 		super.create();
@@ -39,13 +45,43 @@ class MenuState extends FlxState
         fg = new FlxSprite(320,0);
         fg.loadGraphic("assets/images/fg720.png");
         fg.scrollFactor.x = 3;
+		
+		// Create Buttons to indicate the movement between the screens
+		btn_right = new FlxSprite(1710, 5);
+		btn_right.loadGraphic("assets/images/btn_right.png", true);
+		
+		btn_right.animation.add("blink", [0, 1], 2, true);
+		btn_right.scrollFactor.x = 2;
+		
+		btn_left = new FlxSprite(720, 5);
+		btn_left.loadGraphic("assets/images/btn_left.png", true);
+		
+		btn_left.animation.add("blink", [0, 1], 2, true);
+		btn_left.scrollFactor.x = 2;
+		
+		// Creates The professor
+		prof = new FlxSprite(1440, 280);
+		prof.loadGraphic("assets/images/prof_spritesheet.png");
+		prof.scrollFactor.x = 2;
  
         // move the floor lower so we can see the background.
         fg.y = 460;
  
+
         // Add the backdrops in order.
         add(bg);
+		
+		// Add the professor
+		add(prof);
+		
         add(fg);
+		
+		// Add the buttons in order
+		add(btn_left);
+		btn_left.animation.play("blink");
+		
+		add(btn_right);
+		btn_right.animation.play("blink");
 		
 		// Goes to level 1
 		level_1 = new FlxButton( 400, 192, null, switchState);
@@ -83,37 +119,16 @@ class MenuState extends FlxState
 				
 			cameraMovement = true;
 			delayTimer.run = MoveCamera;
-				//trace(amountToMove);
 			}
 		}
-		
-		//if (FlxG.keys.justReleased.LEFT || FlxG.keys.justReleased.RIGHT) cameraMovement = false;
 		
         if (FlxG.keys.justPressed.RIGHT) 
 		{
 			cameraMovement = true;
 			amountToMove = Math.abs(amountToMove);
 			delayTimer.run = MoveCamera;
-			//trace(amountToMove);
+			
 		}
-		
-		/*while(cameraMovement){
-				//trace(FlxG.camera.x);
-				/*if (FlxG.camera.scroll.x == 0 || FlxG.camera.scroll.x == 320 || FlxG.camera.scroll.x == 640)
-				{
-					cameraMovement = false;
-					delayTimer.stop;
-					trace(FlxG.camera.scroll.x);
-				}
-				//if (cameraMovement == false)
-					
-		}
-		
-		/*if (cameraMovement) 
-		{
-			FlxG.camera.scroll.add(amountToMove, 0);
-		}
-		*/
 		
 	}
 	
@@ -121,24 +136,55 @@ class MenuState extends FlxState
 	{		
 		if(cameraMovement == true)
 			FlxG.camera.scroll.add(amountToMove, 0);
-		trace(FlxG.camera.scroll.x);
+			
 		if (FlxG.camera.scroll.x == -5 )
 				{
 					FlxG.camera.scroll.x = 0;
 					delayTimer.stop;
 					cameraMovement = false;
+					
+					remove(btn_left);
+					remove(btn_right);
+					
+					btn_right.x = 760;
+					add(btn_right);
+					
+					prof.x = 300;
+					
+					prof.flipX = true;
 				}
 				
-		if (FlxG.camera.scroll.x == 660)
+		if (FlxG.camera.scroll.x == 640)
 			{
 				delayTimer.stop;
 				cameraMovement = false;
+				
+				remove(btn_left);
+				remove(btn_right);
+				
+				btn_left.x = 1710;
+				add(btn_left);
+				
+				prof.x = 1440;
+				prof.flipX = true;
 			}
 			
 			if (FlxG.camera.scroll.x == 320)
 			{
 				delayTimer.stop;
 				cameraMovement = false;
+				
+				remove(btn_left);
+				remove(btn_right);
+				
+				btn_right.x = 1710;
+				add(btn_right);
+				
+				btn_left.x = 720;
+				add(btn_left);
+				
+				prof.x = 1440;
+				prof.flipX = false;
 			}
 			
 			

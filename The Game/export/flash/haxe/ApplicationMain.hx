@@ -30,6 +30,10 @@ class ApplicationMain {
 		var types = [];
 		
 		
+		urls.push ("assets/data/3000by720.csv");
+		types.push (lime.Assets.AssetType.TEXT);
+		
+		
 		urls.push ("assets/data/data-goes-here.txt");
 		types.push (lime.Assets.AssetType.TEXT);
 		
@@ -54,15 +58,27 @@ class ApplicationMain {
 		types.push (lime.Assets.AssetType.TEXT);
 		
 		
-		urls.push ("assets/images/button.png");
+		urls.push ("assets/images/btn_left.png");
 		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
-		urls.push ("assets/images/Character.png");
+		urls.push ("assets/images/btn_right.png");
 		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
-		urls.push ("assets/images/character_sheet.png");
+		urls.push ("assets/images/character_sheet_boy.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("assets/images/character_sheet_girl.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("assets/images/click_animation_boy.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("assets/images/click_animation_girl.png");
 		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
@@ -70,15 +86,7 @@ class ApplicationMain {
 		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
-		urls.push ("assets/images/ground.png");
-		types.push (lime.Assets.AssetType.IMAGE);
-		
-		
 		urls.push ("assets/images/HG_Icon.png");
-		types.push (lime.Assets.AssetType.IMAGE);
-		
-		
-		urls.push ("assets/images/huntersBG.png");
 		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
@@ -90,31 +98,43 @@ class ApplicationMain {
 		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
-		urls.push ("assets/images/LevelOneBGH.png");
-		types.push (lime.Assets.AssetType.IMAGE);
-		
-		
-		urls.push ("assets/images/levelselect.png");
-		types.push (lime.Assets.AssetType.IMAGE);
-		
-		
-		urls.push ("assets/images/messedupmushroom.png");
-		types.push (lime.Assets.AssetType.IMAGE);
-		
-		
-		urls.push ("assets/images/messedupturtle.png");
-		types.push (lime.Assets.AssetType.IMAGE);
-		
-		
 		urls.push ("assets/images/ms720.png");
 		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
-		urls.push ("assets/images/options.png");
+		urls.push ("assets/images/Placeholders/levelselect.png");
 		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
-		urls.push ("assets/images/overview.png");
+		urls.push ("assets/images/Placeholders/messedupmushroom.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("assets/images/Placeholders/messedupturtle.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("assets/images/Placeholders/options.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("assets/images/Placeholders/overview.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("assets/images/Placeholders/titlescreen.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("assets/images/prof_spritesheet.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("assets/images/selection_boy.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("assets/images/selection_girl.png");
 		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
@@ -123,10 +143,6 @@ class ApplicationMain {
 		
 		
 		urls.push ("assets/images/TileSet.png");
-		types.push (lime.Assets.AssetType.IMAGE);
-		
-		
-		urls.push ("assets/images/titlescreen.png");
 		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
@@ -339,7 +355,7 @@ class ApplicationMain {
 		
 		config = {
 			
-			build: "335",
+			build: "412",
 			company: "Tom",
 			file: "RunneroftheCentury",
 			fps: 60,

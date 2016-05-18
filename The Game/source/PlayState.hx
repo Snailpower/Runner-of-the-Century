@@ -12,6 +12,8 @@ import flixel.FlxCamera;
 import flixel.FlxBasic;
 import flixel.util.FlxColor;
 import flixel.addons.editors.ogmo.FlxOgmoLoader;
+import flixel.util.FlxCollision;
+
 
 class PlayState extends FlxState
 {
@@ -44,6 +46,7 @@ class PlayState extends FlxState
 		////tileMap.loadMap(Assets.getText("assets/data/HuntersTileV2.csv"), "assets/images/Tiles.png", TILE_WIDTH, TILE_HEIGHT, 0, 1);
 		//add(tileMap);
 		//
+		
 		parrallax();
 		
 	
@@ -52,7 +55,7 @@ class PlayState extends FlxState
 	
 	private function parrallax()
 	{
-		bg = new FlxBackdrop("assets/images/LevelOneBG.png",2,1,true,false);
+		bg = new FlxBackdrop("assets/images/LevelOneBG.png",0,1,true,false);
 
         // Add the backdrops in order.
 			add(bg);
@@ -71,11 +74,14 @@ class PlayState extends FlxState
 		FlxG.camera.follow(player.character);
 		FlxG.camera.style = FlxCameraFollowStyle.LOCKON;
 		//FlxG.camera.height = 200;
+		FlxG.camera.setScrollBounds (0, 3000, 0, 720);
 		
 		tileMap = new FlxTilemap();
-		tileMap.loadMapFromCSV("assets/data/HuntersV4.csv","assets/images/TileSet.png", TILE_WIDTH, TILE_HEIGHT, 0, 1);
+		tileMap.loadMapFromCSV("assets/data/3000by720.csv","assets/images/TileSet.png", TILE_WIDTH, TILE_HEIGHT, 0, 1);
 		//tileMap.loadMap(Assets.getText("assets/data/HuntersTileV2.csv"), "assets/images/Tiles.png", TILE_WIDTH, TILE_HEIGHT, 0, 1);
 		add(tileMap);
+		
+		FlxG.worldBounds.width = tileMap.width;
 		
 	
 		
@@ -98,6 +104,8 @@ class PlayState extends FlxState
 	
 		//FlxG.collide(floor, player.character);
 		FlxG.collide(tileMap, player.character);
+		
+
 		
 		if (FlxG.collide(tileMap, player.character))
 		{
