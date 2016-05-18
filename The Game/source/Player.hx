@@ -23,11 +23,22 @@ class Player extends FlxObject
 	public function new() 
 	{
 		super();
-		character= new FlxSprite (200,200);
-		character.loadGraphic("assets/images/character_sheet.png", true, 64, 64);
+		character = new FlxSprite (200, 200);
+		
+		if (SelectState.gender == "male") 
+		{
+			character.loadGraphic("assets/images/character_sheet_boy.png", true, 37, 63);
+		}
+		
+		else if (SelectState.gender == "female")
+		{
+			character.loadGraphic("assets/images/character_sheet_girl.png", true, 37, 63);
+		}
 		
 		character.maxVelocity.x = 200;
-		character.updateHitbox();
+		
+		character.width = 32;
+		character.offset.x = 16;
 		
 		//Gravity
 		character.acceleration.y = 300;
@@ -112,9 +123,9 @@ class Player extends FlxObject
 				}
 			}
 		
-			if (FlxG.keys.pressed.UP && character.velocity.y == 0) 
+			if (FlxG.keys.justPressed.UP && character.velocity.y == 0) 
 			{
-				character.velocity.y = -130;
+				character.velocity.y = -175;
 			}
 			
 			if (character.velocity.x == 0 && character.velocity.y == 0) 
@@ -128,6 +139,11 @@ class Player extends FlxObject
 			}
 		}
 		
+		if (character.x < 0)
+		{
+			character.x = 0;
+			character.acceleration.x = 0;
+		}
 		
 		
 		super.update(elapsed);
