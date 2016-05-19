@@ -24,6 +24,7 @@ class MenuState extends FlxState
 	private var option_btn:FlxButton;
 	private var volume_up:FlxButton;
 	private var volume_down:FlxButton;
+	private var instruction_btn:FlxButton;
 	private var back_btn:FlxButton;
 	
 	private var level_1:FlxButton;
@@ -98,10 +99,14 @@ class MenuState extends FlxState
 		level_1.scrollFactor.y = 1;
 		add(level_1);
 		
-		// Creates the option buttons
-		option_btn = new FlxButton (2160, 360, "Options", optionsOnClick);
+		// Creates the option and instruction buttons
+		option_btn = new FlxButton (1968, 204, "Options", optionsOnClick);
 		option_btn.scrollFactor.x = 2;
 		
+		instruction_btn = new FlxButton(1968, 264, "Instructions", instructions);
+		instruction_btn.scrollFactor.x = 2;
+		
+		add(instruction_btn);
 		add(option_btn);
 		
 		// Plays the menumusic
@@ -127,14 +132,15 @@ class MenuState extends FlxState
 	private function optionsOnClick()
 	{
 		remove(option_btn);
+		remove(instruction_btn);
 		
-		volume_up = new FlxButton(2160, 300, "+", volumeUp);
+		volume_up = new FlxButton(1968, 204, "+", volumeUp);
 		volume_up.scrollFactor.x = 2;
 		
-		volume_down = new FlxButton(2160, 420, "-", volumeDown);
+		volume_down = new FlxButton(1968, 234, "-", volumeDown);
 		volume_down.scrollFactor.x = 2;
 		
-		back_btn = new FlxButton(2160, 480, "back", optionsReturn);
+		back_btn = new FlxButton(1968, 324, "back", menuReturn);
 		back_btn.scrollFactor.x = 2;
 		
 		add(back_btn);
@@ -142,13 +148,14 @@ class MenuState extends FlxState
 		add(volume_down);
 	}
 	
-	private function optionsReturn()
+	private function menuReturn()
 	{
 		remove(volume_down);
 		remove(volume_up);
 		remove(back_btn);
 		
 		add(option_btn);
+		add(instruction_btn);
 	}
 	
 	private function volumeUp()
@@ -159,6 +166,16 @@ class MenuState extends FlxState
 	private function volumeDown()
 	{
 		menuMusic.volume = menuMusic.volume - 0.1;
+	}
+	
+	private function instructions()
+	{
+		remove(option_btn);
+		remove(instruction_btn);
+		
+		back_btn = new FlxButton(1968, 324, "back", menuReturn);
+		back_btn.scrollFactor.x = 2;
+		add(back_btn);
 	}
 
 	override public function update(elapsed:Float):Void
