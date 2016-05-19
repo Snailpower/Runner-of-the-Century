@@ -13,6 +13,8 @@ import flixel.FlxBasic;
 import flixel.util.FlxColor;
 import flixel.addons.editors.ogmo.FlxOgmoLoader;
 import flixel.util.FlxCollision;
+import flixel.ui.FlxBar;
+import flixel.addons.ui.FlxUIBar;
 
 
 class PlayState extends FlxState
@@ -25,6 +27,7 @@ class PlayState extends FlxState
 	var loader : FlxOgmoLoader;
 	var levelfloor : FlxTilemap;
 	var levelback : FlxTilemap;
+	var progBar : FlxBar;
 	
 	var background : FlxSprite;
 	
@@ -36,21 +39,7 @@ class PlayState extends FlxState
 	{
 		super.create();
 		
-		//background= new FlxSprite ();
-		//background.loadGraphic("assets/images/LevelOneBG.png");
-		//add (background);
-		
-		
-		//tileMap = new FlxTilemap();
-		//tileMap.loadMapFromCSV("assets/data/HuntersTileV2.csv","assets/images/Tiles.png", TILE_WIDTH, TILE_HEIGHT, 0, 1);
-		////tileMap.loadMap(Assets.getText("assets/data/HuntersTileV2.csv"), "assets/images/Tiles.png", TILE_WIDTH, TILE_HEIGHT, 0, 1);
-		//add(tileMap);
-		//
-		
 		parrallax();
-		
-	
-
 	}
 	
 	private function parrallax()
@@ -62,6 +51,8 @@ class PlayState extends FlxState
 			
 		
 		addPlayer();
+		addObjects();
+		addBar();
 	
 		
 	}
@@ -73,36 +64,40 @@ class PlayState extends FlxState
 		add(player.character);
 		FlxG.camera.follow(player.character);
 		FlxG.camera.style = FlxCameraFollowStyle.LOCKON;
-		//FlxG.camera.height = 200;
 		FlxG.camera.setScrollBounds (0, 3000, 0, 720);
 		
 		tileMap = new FlxTilemap();
 		tileMap.loadMapFromCSV("assets/data/3000by720.csv","assets/images/TileSet.png", TILE_WIDTH, TILE_HEIGHT, 0, 1);
-		//tileMap.loadMap(Assets.getText("assets/data/HuntersTileV2.csv"), "assets/images/Tiles.png", TILE_WIDTH, TILE_HEIGHT, 0, 1);
 		add(tileMap);
 		
 		FlxG.worldBounds.width = tileMap.width;
 		
-	
-		
-		
-				
-		
-		
 	}
+	
+	private function addObject()
+	{
+		//Add objects in this function
+	}
+	
+	private function addBar()
+	{
+		progBar = new FlxBar (390, 680, LEFT_TO_RIGHT, 500, 20);
+		progBar.createFilledBar(FlxColor.ORANGE, FlxColor.GREEN);
+		
+		barOverlay = new FlxSprite (360,660);
+		barOverlay.loadGraphic("assets/images/overlaybar.png",false);
+				
+		add(progBar);
+	
+		add(barOverlay);
 	
 
 	override public function update(elapsed:Float):Void
 	{
 	
-		
-		//if (FlxG.keys.pressed.LEFT) FlxG.camera.scroll.add(-3, 0);
-        //if (FlxG.keys.pressed.RIGHT) FlxG.camera.scroll.add(3, 0);
-		
-		//FlxG.collide(floor, player);
 		super.update(elapsed);
 	
-		//FlxG.collide(floor, player.character);
+		
 		FlxG.collide(tileMap, player.character);
 		
 
@@ -113,28 +108,20 @@ class PlayState extends FlxState
 			trace (tileMap.x);
 		}
 		
-				
-		//trace(player.character.x);
 		
-		
-		if (FlxG.keys.pressed.L)
+		if (player.character.x >= 640 && player.character.x <= 2328)
 		{
-			//character.acceleration.x = -70;
-			trace (player.character.x);
-					
+		progBar.x = (player.character.x - 234);
+		barOverlay.x = (player.character.x - 264);
 		}
 		
-		 
-		 
-		 
-		 //trace (fg.y);
-		 //trace (player.character.y);
-		 //trace (player.y);
-		 
-		 
-		 
-		 
+		else if (player.character.x >= 2328 )
+		{
+		progBar.x = 2096;
+		barOverlay.x = 2066;
+		}
 		
+		progBar.percent = player.character.x / 30;
 		
 		
 	}
