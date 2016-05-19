@@ -146,6 +146,10 @@ class ApplicationMain {
 		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
+		urls.push ("assets/music/menuMusic.mp3");
+		types.push (lime.Assets.AssetType.MUSIC);
+		
+		
 		urls.push ("assets/music/music-goes-here.txt");
 		types.push (lime.Assets.AssetType.TEXT);
 		
@@ -355,7 +359,7 @@ class ApplicationMain {
 		
 		config = {
 			
-			build: "412",
+			build: "462",
 			company: "Tom",
 			file: "RunneroftheCentury",
 			fps: 60,
