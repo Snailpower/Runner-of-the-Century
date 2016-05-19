@@ -4,6 +4,7 @@ import flixel.FlxCamera;
 import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.FlxState;
+import flixel.system.FlxSound;
 import flixel.text.FlxText;
 import flixel.ui.FlxButton;
 import flixel.math.FlxMath;
@@ -18,6 +19,12 @@ class MenuState extends FlxState
 	private var btn_right:FlxSprite;
 	private var btn_left:FlxSprite;
 	private var prof:FlxSprite;
+	private var menuMusic:FlxSound;
+	
+	private var option_btn:FlxButton;
+	private var volume_up:FlxButton;
+	private var volume_down:FlxButton;
+	private var back_btn:FlxButton;
 	
 	private var level_1:FlxButton;
 	private var centerCam:FlxCamera;
@@ -60,9 +67,10 @@ class MenuState extends FlxState
 		btn_left.scrollFactor.x = 2;
 		
 		// Creates The professor
-		prof = new FlxSprite(1440, 280);
+		prof = new FlxSprite(900, 280);
 		prof.loadGraphic("assets/images/prof_spritesheet.png");
-		prof.scrollFactor.x = 2;
+		prof.scrollFactor.x = 0.50;
+		prof.flipX = true;
  
         // move the floor lower so we can see the background.
         fg.y = 460;
@@ -76,19 +84,30 @@ class MenuState extends FlxState
 		
         add(fg);
 		
-		// Add the buttons in order
+		// Add the arrows in order and makes them blink
 		add(btn_left);
 		btn_left.animation.play("blink");
 		
 		add(btn_right);
 		btn_right.animation.play("blink");
 		
-		// Goes to level 1
+		// Creates the button that goes to level 1 on click
 		level_1 = new FlxButton( 400, 192, null, switchState);
 		level_1.loadGraphic("assets/images/HG_Icon.png");
 		level_1.scrollFactor.x = 2;
 		level_1.scrollFactor.y = 1;
 		add(level_1);
+		
+		// Creates the option buttons
+		option_btn = new FlxButton (2160, 360, "Options", optionsOnClick);
+		option_btn.scrollFactor.x = 2;
+		
+		add(option_btn);
+		
+		// Plays the menumusic
+		menuMusic = new FlxSound();
+		menuMusic.loadEmbedded("assets/music/menuMusic.mp3", true);
+		menuMusic.play();
 		
 		//Positions the camera on the title screen
 		FlxG.camera.scroll.add(320, 0);
@@ -100,7 +119,46 @@ class MenuState extends FlxState
 	
 	public function switchState()
 	{
+			menuMusic.stop();
+			
 			FlxG.switchState(new PlayState());
+	}
+	
+	private function optionsOnClick()
+	{
+		remove(option_btn);
+		
+		volume_up = new FlxButton(2160, 300, "+", volumeUp);
+		volume_up.scrollFactor.x = 2;
+		
+		volume_down = new FlxButton(2160, 420, "-", volumeDown);
+		volume_down.scrollFactor.x = 2;
+		
+		back_btn = new FlxButton(2160, 480, "back", optionsReturn);
+		back_btn.scrollFactor.x = 2;
+		
+		add(back_btn);
+		add(volume_up);
+		add(volume_down);
+	}
+	
+	private function optionsReturn()
+	{
+		remove(volume_down);
+		remove(volume_up);
+		remove(back_btn);
+		
+		add(option_btn);
+	}
+	
+	private function volumeUp()
+	{
+		menuMusic.volume = menuMusic.volume + 0.1;
+	}
+	
+	private function volumeDown()
+	{
+		menuMusic.volume = menuMusic.volume - 0.1;
 	}
 
 	override public function update(elapsed:Float):Void
@@ -111,6 +169,7 @@ class MenuState extends FlxState
         // handle the parallax scrolling automatically.
         if (FlxG.keys.justPressed.LEFT) 
 		{
+			prof.flipX = false;
 			
 			if(FlxG.camera.scroll.x >= 0) {
 				amountToMove *= -1;
@@ -124,6 +183,8 @@ class MenuState extends FlxState
 		
         if (FlxG.keys.justPressed.RIGHT) 
 		{
+			prof.flipX = true;
+			
 			cameraMovement = true;
 			amountToMove = Math.abs(amountToMove);
 			delayTimer.run = MoveCamera;
@@ -134,8 +195,10 @@ class MenuState extends FlxState
 	
 	function MoveCamera() 
 	{		
-		if(cameraMovement == true)
+		if (cameraMovement == true)
+		{
 			FlxG.camera.scroll.add(amountToMove, 0);
+		}
 			
 		if (FlxG.camera.scroll.x == -5 )
 				{
@@ -149,9 +212,9 @@ class MenuState extends FlxState
 					btn_right.x = 760;
 					add(btn_right);
 					
-					prof.x = 300;
-					
-					prof.flipX = true;
+					//prof.x = 300;
+					//
+					//prof.flipX = true;
 				}
 				
 		if (FlxG.camera.scroll.x == 640)
@@ -165,8 +228,8 @@ class MenuState extends FlxState
 				btn_left.x = 1710;
 				add(btn_left);
 				
-				prof.x = 1440;
-				prof.flipX = true;
+				//prof.x = 1440;
+				//prof.flipX = true;
 			}
 			
 			if (FlxG.camera.scroll.x == 320)
@@ -183,8 +246,8 @@ class MenuState extends FlxState
 				btn_left.x = 720;
 				add(btn_left);
 				
-				prof.x = 1440;
-				prof.flipX = false;
+				//prof.x = 1440;
+				//prof.flipX = false;
 			}
 			
 			
