@@ -28,6 +28,7 @@ class PlayState extends FlxState
 	var levelfloor : FlxTilemap;
 	var levelback : FlxTilemap;
 	var progBar : FlxBar;
+	var barOverlay : FlxSprite;
 	
 	var background : FlxSprite;
 	
@@ -51,7 +52,6 @@ class PlayState extends FlxState
 			
 		
 		addPlayer();
-		addObjects();
 		addBar();
 	
 		
@@ -81,16 +81,16 @@ class PlayState extends FlxState
 	
 	private function addBar()
 	{
-		progBar = new FlxBar (390, 680, LEFT_TO_RIGHT, 500, 20);
+		progBar = new FlxBar (390, 660, LEFT_TO_RIGHT, 500, 40);
 		progBar.createFilledBar(FlxColor.ORANGE, FlxColor.GREEN);
 		
-		barOverlay = new FlxSprite (360,660);
+		barOverlay = new FlxSprite (360,640);
 		barOverlay.loadGraphic("assets/images/overlaybar.png",false);
 				
 		add(progBar);
 	
 		add(barOverlay);
-	
+	}
 
 	override public function update(elapsed:Float):Void
 	{
