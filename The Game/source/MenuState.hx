@@ -69,13 +69,15 @@ class MenuState extends FlxState
 		
 		// Creates The professor
 		prof = new FlxSprite(900, 280);
-		prof.loadGraphic("assets/images/prof_spritesheet.png");
+		prof.loadGraphic("assets/images/prof_idle.png", true, 88, 296);
 		prof.scrollFactor.x = 0.50;
 		prof.flipX = true;
+		
+		prof.animation.add("idle", [0, 1], 2, true);
+		prof.animation.play("idle");
  
         // move the floor lower so we can see the background.
         fg.y = 460;
- 
 
         // Add the backdrops in order.
         add(bg);
@@ -228,10 +230,6 @@ class MenuState extends FlxState
 					
 					btn_right.x = 760;
 					add(btn_right);
-					
-					//prof.x = 300;
-					//
-					//prof.flipX = true;
 				}
 				
 		if (FlxG.camera.scroll.x == 640)
@@ -244,9 +242,6 @@ class MenuState extends FlxState
 				
 				btn_left.x = 1710;
 				add(btn_left);
-				
-				//prof.x = 1440;
-				//prof.flipX = true;
 			}
 			
 			if (FlxG.camera.scroll.x == 320)
@@ -262,9 +257,6 @@ class MenuState extends FlxState
 				
 				btn_left.x = 720;
 				add(btn_left);
-				
-				//prof.x = 1440;
-				//prof.flipX = false;
 			}
 			
 			

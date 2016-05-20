@@ -102,6 +102,10 @@ class ApplicationMain {
 		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
+		urls.push ("assets/images/overlaybar.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
 		urls.push ("assets/images/Placeholders/levelselect.png");
 		types.push (lime.Assets.AssetType.IMAGE);
 		
@@ -126,7 +130,11 @@ class ApplicationMain {
 		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
-		urls.push ("assets/images/prof_spritesheet.png");
+		urls.push ("assets/images/prof_idle.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("assets/images/prof_static.png");
 		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
@@ -359,7 +367,7 @@ class ApplicationMain {
 		
 		config = {
 			
-			build: "480",
+			build: "502",
 			company: "Tom",
 			file: "RunneroftheCentury",
 			fps: 60,

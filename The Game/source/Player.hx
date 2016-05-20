@@ -37,14 +37,14 @@ class Player extends FlxObject
 		
 		character.maxVelocity.x = 200;
 		
-		character.width = 32;
-		character.offset.x = 16;
+		character.width = 37;
+		character.offset.x = 0;
 		
 		//Gravity
-		character.acceleration.y = 300;
+		character.acceleration.y = 600;
 		
 		//Horizontal Drag
-		character.drag.set(600, 500);
+		character.drag.set(2000, 500);
 		
 		character.solid = true;
 		this.solid = true;
@@ -125,7 +125,7 @@ class Player extends FlxObject
 		
 			if (FlxG.keys.justPressed.UP && character.velocity.y == 0) 
 			{
-				character.velocity.y = -175;
+				character.velocity.y = -240;
 			}
 			
 			if (character.velocity.x == 0 && character.velocity.y == 0) 
