@@ -11,6 +11,7 @@ import flixel.math.FlxMath;
 import flixel.math.FlxPoint;
 import flixel.util.FlxTimer;
 import haxe.Timer;
+import openfl.Assets;
 
 class MenuState extends FlxState
 {	
@@ -20,6 +21,8 @@ class MenuState extends FlxState
 	private var btn_left:FlxSprite;
 	private var prof:FlxSprite;
 	private var menuMusic:FlxSound;
+	
+	private var giftest: FlxSprite;
 	
 	private var option_btn:FlxButton;
 	private var volume_up:FlxButton;
@@ -38,12 +41,12 @@ class MenuState extends FlxState
 	override public function create():Void
 	{
 		super.create();
-		
+
 		titleScreen();
 	}
 	
 	private function titleScreen()
-	{
+	{	
 		// Create image that scrolls at x2 speed based on the camera's scroll
         bg = new FlxSprite(0,0);
         bg.loadGraphic("assets/images/ms720.png");
@@ -69,12 +72,15 @@ class MenuState extends FlxState
 		
 		// Creates The professor
 		prof = new FlxSprite(900, 280);
-		prof.loadGraphic("assets/images/prof_idle.png", true, 88, 296);
+		prof.loadGraphic("assets/images/prof_ss.png", true, 116, 296);
 		prof.scrollFactor.x = 0.50;
 		prof.flipX = true;
 		
-		prof.animation.add("idle", [0, 1], 2, true);
+		prof.animation.add("idle", [0, 1, 2, 3, 4], 3, true);
 		prof.animation.play("idle");
+		
+		prof.animation.add("walk", [5, 6, 7, 8, 9, 10, 11, 12, 13, 7, 8, 9, 10, 11, 12, 13, 7, 8, 9, 10, 12, 13, 7, 8, 9, 10, 11, 12, 13], 8, false);
+		prof.animation.add("talk", [14, 15, 16, 17], 4, true);
  
         // move the floor lower so we can see the background.
         fg.y = 460;
@@ -122,6 +128,16 @@ class MenuState extends FlxState
 		FlxG.camera.setScrollBounds( 0, 1920, 0, 720);
 		delayTimer = new Timer(25);
 		delayTimer.stop;
+		
+		//Tests a Gif
+		giftest = new FlxSprite(720, 204);
+		giftest.loadGraphic("assets/images/no_spritesheet.png", true, 600, 338);
+		giftest.scrollFactor.x = 2;
+		
+		//add(giftest);
+		
+		//giftest.animation.add("play", [0, 1, 2, 3 ,4 ,5, 6, 7 ,8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38], 30, true);
+		//giftest.animation.play("play");
 	}
 	
 	public function switchState()
@@ -177,6 +193,7 @@ class MenuState extends FlxState
 		
 		back_btn = new FlxButton(1968, 324, "back", menuReturn);
 		back_btn.scrollFactor.x = 2;
+		
 		add(back_btn);
 	}
 
@@ -189,6 +206,7 @@ class MenuState extends FlxState
         if (FlxG.keys.justPressed.LEFT) 
 		{
 			prof.flipX = false;
+			prof.animation.play("walk");
 			
 			if(FlxG.camera.scroll.x >= 0) {
 				amountToMove *= -1;
@@ -203,11 +221,11 @@ class MenuState extends FlxState
         if (FlxG.keys.justPressed.RIGHT) 
 		{
 			prof.flipX = true;
+			prof.animation.play("walk");
 			
 			cameraMovement = true;
 			amountToMove = Math.abs(amountToMove);
 			delayTimer.run = MoveCamera;
-			
 		}
 		
 	}
@@ -230,6 +248,8 @@ class MenuState extends FlxState
 					
 					btn_right.x = 760;
 					add(btn_right);
+					
+					prof.animation.play("talk");
 				}
 				
 		if (FlxG.camera.scroll.x == 640)
@@ -242,6 +262,8 @@ class MenuState extends FlxState
 				
 				btn_left.x = 1710;
 				add(btn_left);
+				
+				prof.animation.play("talk");
 			}
 			
 			if (FlxG.camera.scroll.x == 320)
@@ -257,6 +279,8 @@ class MenuState extends FlxState
 				
 				btn_left.x = 720;
 				add(btn_left);
+				
+				prof.animation.play("idle");
 			}
 			
 			
