@@ -68,6 +68,8 @@ class Player extends FlxObject
 	override public function update(elapsed:Float):Void
 	{
 		
+		trace (character.velocity.x);
+		
 		character.acceleration.x = 0;
 		
 		//character.x = this.x - 150;

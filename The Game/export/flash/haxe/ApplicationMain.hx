@@ -54,6 +54,10 @@ class ApplicationMain {
 		types.push (lime.Assets.AssetType.TEXT);
 		
 		
+		urls.push ("assets/data/LevelOne.csv");
+		types.push (lime.Assets.AssetType.TEXT);
+		
+		
 		urls.push ("assets/data/LevelOne.oel");
 		types.push (lime.Assets.AssetType.TEXT);
 		
@@ -367,7 +371,7 @@ class ApplicationMain {
 		
 		config = {
 			
-			build: "502",
+			build: "514",
 			company: "Tom",
 			file: "RunneroftheCentury",
 			fps: 60,

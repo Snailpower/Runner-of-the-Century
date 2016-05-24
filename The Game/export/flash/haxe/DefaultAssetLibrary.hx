@@ -87,6 +87,7 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		
 		
+		
 		openfl.text.Font.registerFont (__ASSET__OPENFL__flixel_fonts_nokiafc22_ttf);
 		openfl.text.Font.registerFont (__ASSET__OPENFL__flixel_fonts_monsterrat_ttf);
 		
@@ -137,6 +138,8 @@ class DefaultAssetLibrary extends AssetLibrary {
 		type.set ("assets/data/HuntersTileV2.csv", AssetType.TEXT);
 		className.set ("assets/data/HuntersV4.csv", __ASSET__assets_data_huntersv4_csv);
 		type.set ("assets/data/HuntersV4.csv", AssetType.TEXT);
+		className.set ("assets/data/LevelOne.csv", __ASSET__assets_data_levelone_csv);
+		type.set ("assets/data/LevelOne.csv", AssetType.TEXT);
 		className.set ("assets/data/LevelOne.oel", __ASSET__assets_data_levelone_oel);
 		type.set ("assets/data/LevelOne.oel", AssetType.TEXT);
 		className.set ("assets/images/btn_left.png", __ASSET__assets_images_btn_left_png);
@@ -289,6 +292,10 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		type.set (id, AssetType.TEXT);
 		id = "assets/data/HuntersV4.csv";
+		path.set (id, id);
+		
+		type.set (id, AssetType.TEXT);
+		id = "assets/data/LevelOne.csv";
 		path.set (id, id);
 		
 		type.set (id, AssetType.TEXT);
@@ -579,6 +586,9 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		className.set ("assets/data/HuntersV4.csv", __ASSET__assets_data_huntersv4_csv);
 		type.set ("assets/data/HuntersV4.csv", AssetType.TEXT);
+		
+		className.set ("assets/data/LevelOne.csv", __ASSET__assets_data_levelone_csv);
+		type.set ("assets/data/LevelOne.csv", AssetType.TEXT);
 		
 		className.set ("assets/data/LevelOne.oel", __ASSET__assets_data_levelone_oel);
 		type.set ("assets/data/LevelOne.oel", AssetType.TEXT);
@@ -1419,6 +1429,7 @@ class DefaultAssetLibrary extends AssetLibrary {
 @:keep @:bind #if display private #end class __ASSET__assets_data_hunterstile_csv extends flash.utils.ByteArray { }
 @:keep @:bind #if display private #end class __ASSET__assets_data_hunterstilev2_csv extends flash.utils.ByteArray { }
 @:keep @:bind #if display private #end class __ASSET__assets_data_huntersv4_csv extends flash.utils.ByteArray { }
+@:keep @:bind #if display private #end class __ASSET__assets_data_levelone_csv extends flash.utils.ByteArray { }
 @:keep @:bind #if display private #end class __ASSET__assets_data_levelone_oel extends flash.utils.ByteArray { }
 @:keep @:bind #if display private #end class __ASSET__assets_images_btn_left_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_images_btn_right_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
@@ -1522,6 +1533,7 @@ class DefaultAssetLibrary extends AssetLibrary {
 
 
 
+
 @:keep #if display private #end class __ASSET__flixel_fonts_nokiafc22_ttf extends lime.text.Font { public function new () { super (); name = "Nokia Cellphone FC Small"; } } 
 @:keep #if display private #end class __ASSET__flixel_fonts_monsterrat_ttf extends lime.text.Font { public function new () { super (); name = "Monsterrat"; } } 
 
@@ -1570,6 +1582,7 @@ class DefaultAssetLibrary extends AssetLibrary {
 @:file("assets/data/HuntersTile.csv") #if display private #end class __ASSET__assets_data_hunterstile_csv extends lime.utils.Bytes {}
 @:file("assets/data/HuntersTileV2.csv") #if display private #end class __ASSET__assets_data_hunterstilev2_csv extends lime.utils.Bytes {}
 @:file("assets/data/HuntersV4.csv") #if display private #end class __ASSET__assets_data_huntersv4_csv extends lime.utils.Bytes {}
+@:file("assets/data/LevelOne.csv") #if display private #end class __ASSET__assets_data_levelone_csv extends lime.utils.Bytes {}
 @:file("assets/data/LevelOne.oel") #if display private #end class __ASSET__assets_data_levelone_oel extends lime.utils.Bytes {}
 @:image("assets/images/btn_left.png") #if display private #end class __ASSET__assets_images_btn_left_png extends lime.graphics.Image {}
 @:image("assets/images/btn_right.png") #if display private #end class __ASSET__assets_images_btn_right_png extends lime.graphics.Image {}
