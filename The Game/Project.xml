@@ -41,6 +41,12 @@
 	<!--In case you want to use the ui package-->
 	<haxelib name="flixel-ui"/>
 	
+	<haxelib name="yagp" />
+	
+	<haxelib name="openfl" />
+	
+	<haxelib name="openfl-samples" />
+	
 	<!--In case you want to use nape with flixel-->
 	<!--<haxelib name="nape" />-->
 	

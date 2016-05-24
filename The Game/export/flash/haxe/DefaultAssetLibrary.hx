@@ -87,6 +87,9 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		
 		
+		
+		
+		
 		openfl.text.Font.registerFont (__ASSET__OPENFL__flixel_fonts_nokiafc22_ttf);
 		openfl.text.Font.registerFont (__ASSET__OPENFL__flixel_fonts_monsterrat_ttf);
 		
@@ -161,6 +164,10 @@ class DefaultAssetLibrary extends AssetLibrary {
 		type.set ("assets/images/LevelOneBG.png", AssetType.IMAGE);
 		className.set ("assets/images/ms720.png", __ASSET__assets_images_ms720_png);
 		type.set ("assets/images/ms720.png", AssetType.IMAGE);
+		className.set ("assets/images/no.gif", __ASSET__assets_images_no_gif);
+		type.set ("assets/images/no.gif", AssetType.IMAGE);
+		className.set ("assets/images/no_spritesheet.png", __ASSET__assets_images_no_spritesheet_png);
+		type.set ("assets/images/no_spritesheet.png", AssetType.IMAGE);
 		className.set ("assets/images/overlaybar.png", __ASSET__assets_images_overlaybar_png);
 		type.set ("assets/images/overlaybar.png", AssetType.IMAGE);
 		className.set ("assets/images/Placeholders/levelselect.png", __ASSET__assets_images_placeholders_levelselect_png);
@@ -177,6 +184,8 @@ class DefaultAssetLibrary extends AssetLibrary {
 		type.set ("assets/images/Placeholders/titlescreen.png", AssetType.IMAGE);
 		className.set ("assets/images/prof_idle.png", __ASSET__assets_images_prof_idle_png);
 		type.set ("assets/images/prof_idle.png", AssetType.IMAGE);
+		className.set ("assets/images/prof_ss.png", __ASSET__assets_images_prof_ss_png);
+		type.set ("assets/images/prof_ss.png", AssetType.IMAGE);
 		className.set ("assets/images/prof_static.png", __ASSET__assets_images_prof_static_png);
 		type.set ("assets/images/prof_static.png", AssetType.IMAGE);
 		className.set ("assets/images/selection_boy.png", __ASSET__assets_images_selection_boy_png);
@@ -340,6 +349,14 @@ class DefaultAssetLibrary extends AssetLibrary {
 		path.set (id, id);
 		
 		type.set (id, AssetType.IMAGE);
+		id = "assets/images/no.gif";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
+		id = "assets/images/no_spritesheet.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
 		id = "assets/images/overlaybar.png";
 		path.set (id, id);
 		
@@ -369,6 +386,10 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		type.set (id, AssetType.IMAGE);
 		id = "assets/images/prof_idle.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
+		id = "assets/images/prof_ss.png";
 		path.set (id, id);
 		
 		type.set (id, AssetType.IMAGE);
@@ -616,6 +637,12 @@ class DefaultAssetLibrary extends AssetLibrary {
 		className.set ("assets/images/ms720.png", __ASSET__assets_images_ms720_png);
 		type.set ("assets/images/ms720.png", AssetType.IMAGE);
 		
+		className.set ("assets/images/no.gif", __ASSET__assets_images_no_gif);
+		type.set ("assets/images/no.gif", AssetType.IMAGE);
+		
+		className.set ("assets/images/no_spritesheet.png", __ASSET__assets_images_no_spritesheet_png);
+		type.set ("assets/images/no_spritesheet.png", AssetType.IMAGE);
+		
 		className.set ("assets/images/overlaybar.png", __ASSET__assets_images_overlaybar_png);
 		type.set ("assets/images/overlaybar.png", AssetType.IMAGE);
 		
@@ -639,6 +666,9 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		className.set ("assets/images/prof_idle.png", __ASSET__assets_images_prof_idle_png);
 		type.set ("assets/images/prof_idle.png", AssetType.IMAGE);
+		
+		className.set ("assets/images/prof_ss.png", __ASSET__assets_images_prof_ss_png);
+		type.set ("assets/images/prof_ss.png", AssetType.IMAGE);
 		
 		className.set ("assets/images/prof_static.png", __ASSET__assets_images_prof_static_png);
 		type.set ("assets/images/prof_static.png", AssetType.IMAGE);
@@ -1431,6 +1461,8 @@ class DefaultAssetLibrary extends AssetLibrary {
 @:keep @:bind #if display private #end class __ASSET__assets_images_images_go_here_txt extends flash.utils.ByteArray { }
 @:keep @:bind #if display private #end class __ASSET__assets_images_levelonebg_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_images_ms720_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__assets_images_no_gif extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__assets_images_no_spritesheet_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_images_overlaybar_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_images_placeholders_levelselect_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_images_placeholders_messedupmushroom_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
@@ -1439,6 +1471,7 @@ class DefaultAssetLibrary extends AssetLibrary {
 @:keep @:bind #if display private #end class __ASSET__assets_images_placeholders_overview_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_images_placeholders_titlescreen_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_images_prof_idle_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__assets_images_prof_ss_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_images_prof_static_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_images_selection_boy_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_images_selection_girl_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
@@ -1485,6 +1518,9 @@ class DefaultAssetLibrary extends AssetLibrary {
 
 
 #elseif html5
+
+
+
 
 
 
@@ -1582,6 +1618,8 @@ class DefaultAssetLibrary extends AssetLibrary {
 @:file("assets/images/images-go-here.txt") #if display private #end class __ASSET__assets_images_images_go_here_txt extends lime.utils.Bytes {}
 @:image("assets/images/LevelOneBG.png") #if display private #end class __ASSET__assets_images_levelonebg_png extends lime.graphics.Image {}
 @:image("assets/images/ms720.png") #if display private #end class __ASSET__assets_images_ms720_png extends lime.graphics.Image {}
+@:image("assets/images/no.gif") #if display private #end class __ASSET__assets_images_no_gif extends lime.graphics.Image {}
+@:image("assets/images/no_spritesheet.png") #if display private #end class __ASSET__assets_images_no_spritesheet_png extends lime.graphics.Image {}
 @:image("assets/images/overlaybar.png") #if display private #end class __ASSET__assets_images_overlaybar_png extends lime.graphics.Image {}
 @:image("assets/images/Placeholders/levelselect.png") #if display private #end class __ASSET__assets_images_placeholders_levelselect_png extends lime.graphics.Image {}
 @:image("assets/images/Placeholders/messedupmushroom.png") #if display private #end class __ASSET__assets_images_placeholders_messedupmushroom_png extends lime.graphics.Image {}
@@ -1590,6 +1628,7 @@ class DefaultAssetLibrary extends AssetLibrary {
 @:image("assets/images/Placeholders/overview.png") #if display private #end class __ASSET__assets_images_placeholders_overview_png extends lime.graphics.Image {}
 @:image("assets/images/Placeholders/titlescreen.png") #if display private #end class __ASSET__assets_images_placeholders_titlescreen_png extends lime.graphics.Image {}
 @:image("assets/images/prof_idle.png") #if display private #end class __ASSET__assets_images_prof_idle_png extends lime.graphics.Image {}
+@:image("assets/images/prof_ss.png") #if display private #end class __ASSET__assets_images_prof_ss_png extends lime.graphics.Image {}
 @:image("assets/images/prof_static.png") #if display private #end class __ASSET__assets_images_prof_static_png extends lime.graphics.Image {}
 @:image("assets/images/selection_boy.png") #if display private #end class __ASSET__assets_images_selection_boy_png extends lime.graphics.Image {}
 @:image("assets/images/selection_girl.png") #if display private #end class __ASSET__assets_images_selection_girl_png extends lime.graphics.Image {}
