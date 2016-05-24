@@ -54,6 +54,10 @@ class ApplicationMain {
 		types.push (lime.Assets.AssetType.TEXT);
 		
 		
+		urls.push ("assets/data/LevelOne.csv");
+		types.push (lime.Assets.AssetType.TEXT);
+		
+		
 		urls.push ("assets/data/LevelOne.oel");
 		types.push (lime.Assets.AssetType.TEXT);
 		
@@ -102,14 +106,6 @@ class ApplicationMain {
 		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
-		urls.push ("assets/images/no.gif");
-		types.push (lime.Assets.AssetType.IMAGE);
-		
-		
-		urls.push ("assets/images/no_spritesheet.png");
-		types.push (lime.Assets.AssetType.IMAGE);
-		
-		
 		urls.push ("assets/images/overlaybar.png");
 		types.push (lime.Assets.AssetType.IMAGE);
 		
@@ -139,10 +135,6 @@ class ApplicationMain {
 		
 		
 		urls.push ("assets/images/prof_idle.png");
-		types.push (lime.Assets.AssetType.IMAGE);
-		
-		
-		urls.push ("assets/images/prof_ss.png");
 		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
@@ -379,7 +371,7 @@ class ApplicationMain {
 		
 		config = {
 			
-			build: "561",
+			build: "514",
 			company: "Tom",
 			file: "RunneroftheCentury",
 			fps: 60,

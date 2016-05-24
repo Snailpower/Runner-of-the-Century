@@ -67,7 +67,7 @@ class PlayState extends FlxState
 		FlxG.camera.setScrollBounds (0, 3000, 0, 720);
 		
 		tileMap = new FlxTilemap();
-		tileMap.loadMapFromCSV("assets/data/3000by720.csv","assets/images/TileSet.png", TILE_WIDTH, TILE_HEIGHT, 0, 1);
+		tileMap.loadMapFromCSV("assets/data/LevelOne.csv","assets/images/TileSet.png", TILE_WIDTH, TILE_HEIGHT, 0, 1);
 		add(tileMap);
 		
 		FlxG.worldBounds.width = tileMap.width;
@@ -81,10 +81,10 @@ class PlayState extends FlxState
 	
 	private function addBar()
 	{
-		progBar = new FlxBar (390, 660, LEFT_TO_RIGHT, 500, 40);
+		progBar = new FlxBar (390, 160, LEFT_TO_RIGHT, 500, 40);
 		progBar.createFilledBar(FlxColor.ORANGE, FlxColor.GREEN);
 		
-		barOverlay = new FlxSprite (360,640);
+		barOverlay = new FlxSprite (360,140);
 		barOverlay.loadGraphic("assets/images/overlaybar.png",false);
 				
 		add(progBar);
@@ -124,5 +124,16 @@ class PlayState extends FlxState
 		progBar.percent = player.character.x / 30;
 		
 		
+		if (player.character.x >= 3000)
+		{
+			switchState();
+		}
+		
+		
+	}
+	
+	function switchState() 
+	{
+		FlxG.switchState(new MenuState());
 	}
 }
