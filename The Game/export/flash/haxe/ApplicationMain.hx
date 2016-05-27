@@ -62,6 +62,10 @@ class ApplicationMain {
 		types.push (lime.Assets.AssetType.TEXT);
 		
 		
+		urls.push ("assets/data/Level_HG.csv");
+		types.push (lime.Assets.AssetType.TEXT);
+		
+		
 		urls.push ("assets/images/btn_left.png");
 		types.push (lime.Assets.AssetType.IMAGE);
 		
@@ -90,6 +94,38 @@ class ApplicationMain {
 		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
+		urls.push ("assets/images/HG_Assets/HG_BG.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("assets/images/HG_Assets/HG_Collect.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("assets/images/HG_Assets/HG_Collect_Sprite.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("assets/images/HG_Assets/HG_FG.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("assets/images/HG_Assets/HG_MG.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("assets/images/HG_Assets/HG_Obj_Berry1.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("assets/images/HG_Assets/HG_Obj_Berry2.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("assets/images/HG_Assets/HG_Obj_Tree.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
 		urls.push ("assets/images/HG_Icon.png");
 		types.push (lime.Assets.AssetType.IMAGE);
 		
@@ -103,6 +139,14 @@ class ApplicationMain {
 		
 		
 		urls.push ("assets/images/ms720.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("assets/images/no.gif");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("assets/images/no_spritesheet.png");
 		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
@@ -138,6 +182,10 @@ class ApplicationMain {
 		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
+		urls.push ("assets/images/prof_ss.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
 		urls.push ("assets/images/prof_static.png");
 		types.push (lime.Assets.AssetType.IMAGE);
 		
@@ -155,6 +203,18 @@ class ApplicationMain {
 		
 		
 		urls.push ("assets/images/TileSet.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("assets/images/timeline.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("assets/images/timeline_b.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("assets/images/timeline_g.png");
 		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
@@ -371,7 +431,7 @@ class ApplicationMain {
 		
 		config = {
 			
-			build: "514",
+			build: "683",
 			company: "Tom",
 			file: "RunneroftheCentury",
 			fps: 60,

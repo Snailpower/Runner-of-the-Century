@@ -10,7 +10,7 @@
 -D flixel-addons=2.0.0
 -cp C:/HaxeToolkit/haxe/lib/flixel-ui/2,0,0
 -D flixel-ui=2.0.0
--cp C:/HaxeToolkit/haxe/lib/yagp/git
+-cp C:/HaxeToolkit/haxe/lib/yagp/1,1,4
 -D yagp=1.1.4
 -cp C:/HaxeToolkit/haxe/lib/openfl/3,6,1
 -D openfl=3.6.1
