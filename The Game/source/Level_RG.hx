@@ -24,6 +24,7 @@ class Level_RG extends FlxState
 	private var bg:FlxBackdrop;
 	private var mg:FlxBackdrop;
 	private var fg:FlxSprite;
+	private var sg:FlxBackdrop;
 	
 	var floor : FlxSprite;
 	var player : Player;
@@ -59,13 +60,15 @@ class Level_RG extends FlxState
 	
 	private function parrallax()
 	{
-		bg = new FlxBackdrop("assets/images/HG_Assets/HG_BG.png", 0.02, 1, true, false);
-		mg = new FlxBackdrop("assets/images/HG_Assets/HG_MG.png", 0.09, 1, true, false);		
+		sg = new FlxBackdrop("assets/images/RG_Assets/RG_SG.png", 0.01, 1, true, false); 
+		bg = new FlxBackdrop("assets/images/RG_Assets/RG_BG.png", 0.02, 1, true, false);
+		mg = new FlxBackdrop("assets/images/RG_Assets/RG_MG.png", 0.09, 1, true, false);		
 		fg = new FlxSprite();
-		fg.loadGraphic("assets/images/HG_Assets/HG_FG.png");
+		fg.loadGraphic("assets/images/RG_Assets/RG_FG.png");
 	
 
         // Add the backdrops in order.
+			add(sg);
 			add(bg);
 			add(mg);			
 			add(fg);

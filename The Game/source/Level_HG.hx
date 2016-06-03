@@ -100,7 +100,7 @@ class Level_HG extends FlxState
 	{
 		
 		
-		objectOne = new Obstacle ("assets/images/HG_Assets/HG_Obj_Berry1.png", 1500, 560);
+		objectOne = new Obstacle ("assets/images/HG_Assets/HG_Obj_Berry1.png", 950, 595);
 		add (objectOne);
 		objectTwo = new Obstacle ("assets/images/HG_Assets/HG_Obj_Berry2.png", 2000, 570);
 		add (objectTwo);
@@ -110,7 +110,7 @@ class Level_HG extends FlxState
 		
 		objectFour.offset.y = 30;
 		add (objectFour);
-		objectFive = new Obstacle ("assets/images/HG_Assets/HG_Obj_Berry1.png", 950, 595);
+		objectFive = new Obstacle ("assets/images/HG_Assets/HG_Obj_Berry1.png", 1500, 550);
 		add (objectFive);
 		
 		objectGroup = new FlxGroup();
@@ -161,9 +161,27 @@ class Level_HG extends FlxState
 	
 		super.update(elapsed);
 	
-		
+		if (FlxCollision.pixelPerfectCheck (objectOne.object,player.character))
+		{
+			trace ("Object and player collision");
+			//player.character.x = player.character.x - 1;
+			player.character.y = player.character.y - 1;
+			if (player.character.x < objectOne.xLoc)
+			{
+				player.character.x = player.character.x - 1;
+				
+			}
+			
+			if (player.character.x > objectOne.xLoc)
+			{
+				player.character.x = player.character.x + 1;
+			}
+			player.character.velocity.x = 0;
+			player.character.velocity.y = 0;
+			
+		}
 		FlxG.collide(tileMap, player.character);
-		FlxG.collide(objectGroup, player.character);
+		//FlxG.collide(objectGroup, player.character);
 		
 		if (player.character.x <= 640)
 		{

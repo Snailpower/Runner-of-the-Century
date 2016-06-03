@@ -190,6 +190,22 @@ class ApplicationMain {
 		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
+		urls.push ("assets/images/RG_Assets/RG_BG.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("assets/images/RG_Assets/RG_FG.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("assets/images/RG_Assets/RG_MG.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("assets/images/RG_Assets/RG_SG.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
 		urls.push ("assets/images/selection_boy.png");
 		types.push (lime.Assets.AssetType.IMAGE);
 		
@@ -431,7 +447,7 @@ class ApplicationMain {
 		
 		config = {
 			
-			build: "683",
+			build: "712",
 			company: "Tom",
 			file: "RunneroftheCentury",
 			fps: 60,

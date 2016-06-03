@@ -103,6 +103,10 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		
 		
+		
+		
+		
+		
 		openfl.text.Font.registerFont (__ASSET__OPENFL__flixel_fonts_nokiafc22_ttf);
 		openfl.text.Font.registerFont (__ASSET__OPENFL__flixel_fonts_monsterrat_ttf);
 		
@@ -221,6 +225,14 @@ class DefaultAssetLibrary extends AssetLibrary {
 		type.set ("assets/images/prof_ss.png", AssetType.IMAGE);
 		className.set ("assets/images/prof_static.png", __ASSET__assets_images_prof_static_png);
 		type.set ("assets/images/prof_static.png", AssetType.IMAGE);
+		className.set ("assets/images/RG_Assets/RG_BG.png", __ASSET__assets_images_rg_assets_rg_bg_png);
+		type.set ("assets/images/RG_Assets/RG_BG.png", AssetType.IMAGE);
+		className.set ("assets/images/RG_Assets/RG_FG.png", __ASSET__assets_images_rg_assets_rg_fg_png);
+		type.set ("assets/images/RG_Assets/RG_FG.png", AssetType.IMAGE);
+		className.set ("assets/images/RG_Assets/RG_MG.png", __ASSET__assets_images_rg_assets_rg_mg_png);
+		type.set ("assets/images/RG_Assets/RG_MG.png", AssetType.IMAGE);
+		className.set ("assets/images/RG_Assets/RG_SG.png", __ASSET__assets_images_rg_assets_rg_sg_png);
+		type.set ("assets/images/RG_Assets/RG_SG.png", AssetType.IMAGE);
 		className.set ("assets/images/selection_boy.png", __ASSET__assets_images_selection_boy_png);
 		type.set ("assets/images/selection_boy.png", AssetType.IMAGE);
 		className.set ("assets/images/selection_girl.png", __ASSET__assets_images_selection_girl_png);
@@ -473,6 +485,22 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		type.set (id, AssetType.IMAGE);
 		id = "assets/images/prof_static.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
+		id = "assets/images/RG_Assets/RG_BG.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
+		id = "assets/images/RG_Assets/RG_FG.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
+		id = "assets/images/RG_Assets/RG_MG.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
+		id = "assets/images/RG_Assets/RG_SG.png";
 		path.set (id, id);
 		
 		type.set (id, AssetType.IMAGE);
@@ -793,6 +821,18 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		className.set ("assets/images/prof_static.png", __ASSET__assets_images_prof_static_png);
 		type.set ("assets/images/prof_static.png", AssetType.IMAGE);
+		
+		className.set ("assets/images/RG_Assets/RG_BG.png", __ASSET__assets_images_rg_assets_rg_bg_png);
+		type.set ("assets/images/RG_Assets/RG_BG.png", AssetType.IMAGE);
+		
+		className.set ("assets/images/RG_Assets/RG_FG.png", __ASSET__assets_images_rg_assets_rg_fg_png);
+		type.set ("assets/images/RG_Assets/RG_FG.png", AssetType.IMAGE);
+		
+		className.set ("assets/images/RG_Assets/RG_MG.png", __ASSET__assets_images_rg_assets_rg_mg_png);
+		type.set ("assets/images/RG_Assets/RG_MG.png", AssetType.IMAGE);
+		
+		className.set ("assets/images/RG_Assets/RG_SG.png", __ASSET__assets_images_rg_assets_rg_sg_png);
+		type.set ("assets/images/RG_Assets/RG_SG.png", AssetType.IMAGE);
 		
 		className.set ("assets/images/selection_boy.png", __ASSET__assets_images_selection_boy_png);
 		type.set ("assets/images/selection_boy.png", AssetType.IMAGE);
@@ -1613,6 +1653,10 @@ class DefaultAssetLibrary extends AssetLibrary {
 @:keep @:bind #if display private #end class __ASSET__assets_images_prof_idle_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_images_prof_ss_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_images_prof_static_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__assets_images_rg_assets_rg_bg_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__assets_images_rg_assets_rg_fg_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__assets_images_rg_assets_rg_mg_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__assets_images_rg_assets_rg_sg_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_images_selection_boy_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_images_selection_girl_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_images_tiles_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
@@ -1661,6 +1705,10 @@ class DefaultAssetLibrary extends AssetLibrary {
 
 
 #elseif html5
+
+
+
+
 
 
 
@@ -1796,6 +1844,10 @@ class DefaultAssetLibrary extends AssetLibrary {
 @:image("assets/images/prof_idle.png") #if display private #end class __ASSET__assets_images_prof_idle_png extends lime.graphics.Image {}
 @:image("assets/images/prof_ss.png") #if display private #end class __ASSET__assets_images_prof_ss_png extends lime.graphics.Image {}
 @:image("assets/images/prof_static.png") #if display private #end class __ASSET__assets_images_prof_static_png extends lime.graphics.Image {}
+@:image("assets/images/RG_Assets/RG_BG.png") #if display private #end class __ASSET__assets_images_rg_assets_rg_bg_png extends lime.graphics.Image {}
+@:image("assets/images/RG_Assets/RG_FG.png") #if display private #end class __ASSET__assets_images_rg_assets_rg_fg_png extends lime.graphics.Image {}
+@:image("assets/images/RG_Assets/RG_MG.png") #if display private #end class __ASSET__assets_images_rg_assets_rg_mg_png extends lime.graphics.Image {}
+@:image("assets/images/RG_Assets/RG_SG.png") #if display private #end class __ASSET__assets_images_rg_assets_rg_sg_png extends lime.graphics.Image {}
 @:image("assets/images/selection_boy.png") #if display private #end class __ASSET__assets_images_selection_boy_png extends lime.graphics.Image {}
 @:image("assets/images/selection_girl.png") #if display private #end class __ASSET__assets_images_selection_girl_png extends lime.graphics.Image {}
 @:image("assets/images/Tiles.png") #if display private #end class __ASSET__assets_images_tiles_png extends lime.graphics.Image {}
