@@ -90,7 +90,19 @@ class ApplicationMain {
 		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
+		urls.push ("assets/images/EW_Icon.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
 		urls.push ("assets/images/fg720.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("assets/images/FR_Icon.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("assets/images/GR_Icon.png");
 		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
@@ -134,7 +146,19 @@ class ApplicationMain {
 		types.push (lime.Assets.AssetType.TEXT);
 		
 		
+		urls.push ("assets/images/IR_Icon.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("assets/images/KR_Icon.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
 		urls.push ("assets/images/LevelOneBG.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("assets/images/MA_Icon.png");
 		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
@@ -215,6 +239,10 @@ class ApplicationMain {
 		
 		
 		urls.push ("assets/images/timeline_g.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("assets/images/WW_Icon.png");
 		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
@@ -431,7 +459,7 @@ class ApplicationMain {
 		
 		config = {
 			
-			build: "683",
+			build: "684",
 			company: "Tom",
 			file: "RunneroftheCentury",
 			fps: 60,
