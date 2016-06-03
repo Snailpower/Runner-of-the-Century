@@ -144,7 +144,7 @@ class MenuState extends FlxState
 	{
 			menuMusic.stop();
 			
-			FlxG.switchState(new PlayState());
+			FlxG.switchState(new Level_HG());
 	}
 	
 	private function optionsOnClick()

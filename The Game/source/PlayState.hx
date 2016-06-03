@@ -1,8 +1,10 @@
 package;
 
 import flixel.FlxG;
+import flixel.FlxObject;
 import flixel.FlxSprite;
 import flixel.FlxState;
+import flixel.group.FlxGroup;
 import flixel.text.FlxText;
 import flixel.tile.FlxTilemap;
 import flixel.ui.FlxButton;
@@ -20,15 +22,27 @@ import flixel.addons.ui.FlxUIBar;
 class PlayState extends FlxState
 {
 	private var bg:FlxBackdrop;
-	private var fg:FlxBackdrop;
+	private var mg:FlxBackdrop;
+	private var fg:FlxSprite;
 	
 	var floor : FlxSprite;
 	var player : Player;
 	var loader : FlxOgmoLoader;
-	var levelfloor : FlxTilemap;
 	var levelback : FlxTilemap;
 	var progBar : FlxBar;
-	var barOverlay : FlxSprite;
+	var barIcon : FlxSprite;
+	var collectable : Collectable;
+	var collectable2 : FlxSprite;
+	var itemCollect : Bool = false;
+	
+	var objectOne : Obstacle;
+	var objectTwo : Obstacle;
+	var objectThree : Obstacle;
+	var objectFour : Obstacle;
+	var objectFive : Obstacle;
+	
+	var objectGroup : FlxGroup;
+
 	
 	var background : FlxSprite;
 	
@@ -45,12 +59,20 @@ class PlayState extends FlxState
 	
 	private function parrallax()
 	{
-		bg = new FlxBackdrop("assets/images/LevelOneBG.png",0,1,true,false);
+		bg = new FlxBackdrop("assets/images/HG_Assets/HG_BG.png", 0.02, 1, true, false);
+		mg = new FlxBackdrop("assets/images/HG_Assets/HG_MG.png", 0.09, 1, true, false);		
+		fg = new FlxSprite();
+		fg.loadGraphic("assets/images/HG_Assets/HG_FG.png");
+	
 
         // Add the backdrops in order.
 			add(bg);
+			add(mg);			
+			add(fg);
 			
 		
+		
+		addObject();
 		addPlayer();
 		addBar();
 	
@@ -67,7 +89,7 @@ class PlayState extends FlxState
 		FlxG.camera.setScrollBounds (0, 3000, 0, 720);
 		
 		tileMap = new FlxTilemap();
-		tileMap.loadMapFromCSV("assets/data/LevelOne.csv","assets/images/TileSet.png", TILE_WIDTH, TILE_HEIGHT, 0, 1);
+		tileMap.loadMapFromCSV("assets/data/Level_HG.csv","assets/images/TileSet.png", TILE_WIDTH, TILE_HEIGHT, 0, 1);
 		add(tileMap);
 		
 		FlxG.worldBounds.width = tileMap.width;
@@ -76,59 +98,117 @@ class PlayState extends FlxState
 	
 	private function addObject()
 	{
+		
+		
+		objectOne = new Obstacle ("assets/images/HG_Assets/HG_Obj_Berry1.png", 1500, 560);
+		add (objectOne);
+		objectTwo = new Obstacle ("assets/images/HG_Assets/HG_Obj_Berry2.png", 2000, 570);
+		add (objectTwo);
+		objectThree = new Obstacle ("assets/images/HG_Assets/HG_Obj_Berry2.png", 2550, 560);
+		add (objectThree);
+		objectFour = new Obstacle ("assets/images/HG_Assets/HG_Obj_Tree.png", 475, 600);
+		
+		objectFour.offset.y = 30;
+		add (objectFour);
+		objectFive = new Obstacle ("assets/images/HG_Assets/HG_Obj_Berry1.png", 950, 595);
+		add (objectFive);
+		
+		objectGroup = new FlxGroup();
+		objectGroup.add (objectOne);
+		objectGroup.add (objectTwo);
+		objectGroup.add (objectThree);
+		objectGroup.add (objectFour);
+		objectGroup.add (objectFive);
+		
+		add (objectGroup);
+		
+		collectable = new Collectable ("assets/images/HG_Assets/HG_Collect.png", 2200, 550);
+		add (collectable);		
+		
+		
+		
+		
 		//Add objects in this function
 	}
 	
 	private function addBar()
 	{
-		progBar = new FlxBar (390, 160, LEFT_TO_RIGHT, 500, 40);
-		progBar.createFilledBar(FlxColor.ORANGE, FlxColor.GREEN);
+		progBar = new FlxBar (250, 160, LEFT_TO_RIGHT, 500, 40);
+		progBar.createImageBar("assets/images/timeline.png", null,FlxColor.TRANSPARENT,FlxColor.TRANSPARENT);
 		
-		barOverlay = new FlxSprite (360,140);
-		barOverlay.loadGraphic("assets/images/overlaybar.png",false);
+		barIcon = new FlxSprite (250,160);
+		barIcon.loadGraphic("assets/images/timeline_b.png", false);
+		
+		if (SelectState.gender == "male") 
+		{
+			barIcon.loadGraphic("assets/images/timeline_b.png", false);
+		}
+		
+		
+		else if (SelectState.gender == "female")
+		{
+			barIcon.loadGraphic("assets/images/timeline_g.png", false);
+		}
+		
 				
 		add(progBar);
 	
-		add(barOverlay);
+		add(barIcon);
 	}
 
 	override public function update(elapsed:Float):Void
 	{
+		
+		trace (FlxG.worldBounds.width);
 	
 		super.update(elapsed);
 	
 		
 		FlxG.collide(tileMap, player.character);
+		FlxG.collide(objectGroup, player.character);
 		
-
-		
-		if (FlxG.collide(tileMap, player.character))
+		if (player.character.x <= 640)
 		{
-			trace (player.character.x);
-			trace (tileMap.x);
+		
+		barIcon.x = 276 + (0.09 * player.character.x);
+		
 		}
 		
 		
 		if (player.character.x >= 640 && player.character.x <= 2328)
 		{
-		progBar.x = (player.character.x - 234);
-		barOverlay.x = (player.character.x - 264);
+		progBar.x = (player.character.x - 390);
+		barIcon.x = ((player.character.x - 364) + (0.09 * player.character.x));
+		
 		}
 		
 		else if (player.character.x >= 2328 )
 		{
-		progBar.x = 2096;
-		barOverlay.x = 2066;
+		progBar.x = 1942;
+		barIcon.x = 1940 + 0.1 * player.character.x;
 		}
 		
-		progBar.percent = player.character.x / 30;
-		
-		
-		if (player.character.x >= 3000)
+				
+		if (player.character.x >= 2960 && itemCollect == true )
 		{
 			switchState();
 		}
+
+						
+		if (FlxG.keys.pressed.G && (player.character.x - collectable.xLoc <= 25) && (player.character.x - collectable.xLoc >= -25)) 
+			{
+				itemCollect = true;
+				collectable.destroy();
+			}
 		
+		
+	
+	
+		if (player.character.y >= 720)
+		{
+			player.character.x = player.character.x -50;
+			player.character.y = 500;
+		}
 		
 	}
 	
@@ -136,4 +216,6 @@ class PlayState extends FlxState
 	{
 		FlxG.switchState(new MenuState());
 	}
+
+
 }
