@@ -54,7 +54,15 @@ class ApplicationMain {
 		types.push (lime.Assets.AssetType.TEXT);
 		
 		
+		urls.push ("assets/data/LevelOne.csv");
+		types.push (lime.Assets.AssetType.TEXT);
+		
+		
 		urls.push ("assets/data/LevelOne.oel");
+		types.push (lime.Assets.AssetType.TEXT);
+		
+		
+		urls.push ("assets/data/Level_HG.csv");
 		types.push (lime.Assets.AssetType.TEXT);
 		
 		
@@ -82,7 +90,51 @@ class ApplicationMain {
 		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
+		urls.push ("assets/images/EW_Icon.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
 		urls.push ("assets/images/fg720.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("assets/images/FR_Icon.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("assets/images/GR_Icon.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("assets/images/HG_Assets/HG_BG.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("assets/images/HG_Assets/HG_Collect.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("assets/images/HG_Assets/HG_Collect_Sprite.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("assets/images/HG_Assets/HG_FG.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("assets/images/HG_Assets/HG_MG.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("assets/images/HG_Assets/HG_Obj_Berry1.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("assets/images/HG_Assets/HG_Obj_Berry2.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("assets/images/HG_Assets/HG_Obj_Tree.png");
 		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
@@ -94,7 +146,19 @@ class ApplicationMain {
 		types.push (lime.Assets.AssetType.TEXT);
 		
 		
+		urls.push ("assets/images/IR_Icon.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("assets/images/KR_Icon.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
 		urls.push ("assets/images/LevelOneBG.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("assets/images/MA_Icon.png");
 		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
@@ -163,6 +227,22 @@ class ApplicationMain {
 		
 		
 		urls.push ("assets/images/TileSet.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("assets/images/timeline.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("assets/images/timeline_b.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("assets/images/timeline_g.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("assets/images/WW_Icon.png");
 		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
@@ -379,7 +459,7 @@ class ApplicationMain {
 		
 		config = {
 			
-			build: "561",
+			build: "684",
 			company: "Tom",
 			file: "RunneroftheCentury",
 			fps: 60,

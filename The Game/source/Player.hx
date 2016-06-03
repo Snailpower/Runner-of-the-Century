@@ -30,6 +30,7 @@ class Player extends FlxObject
 			character.loadGraphic("assets/images/character_sheet_boy.png", true, 37, 63);
 		}
 		
+		
 		else if (SelectState.gender == "female")
 		{
 			character.loadGraphic("assets/images/character_sheet_girl.png", true, 37, 63);
@@ -68,6 +69,8 @@ class Player extends FlxObject
 	override public function update(elapsed:Float):Void
 	{
 		
+		
+		
 		character.acceleration.x = 0;
 		
 		//character.x = this.x - 150;
@@ -77,12 +80,12 @@ class Player extends FlxObject
 		{
 			if (FlxG.keys.pressed.LEFT) 
 			{
-			character.acceleration.x = -100;
+			character.acceleration.x = -200;
 			}
 			
 			else if (FlxG.keys.pressed.RIGHT) 
 			{
-				character.acceleration.x = 100;
+				character.acceleration.x = 200;
 				character.flipX = false;
 			}
 			
@@ -142,6 +145,12 @@ class Player extends FlxObject
 		if (character.x < 0)
 		{
 			character.x = 0;
+			character.acceleration.x = 0;
+		}
+		
+		if (character.x > 2960)
+		{
+			character.x = 2960;
 			character.acceleration.x = 0;
 		}
 		
