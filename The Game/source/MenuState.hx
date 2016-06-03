@@ -31,6 +31,12 @@ class MenuState extends FlxState
 	private var back_btn:FlxButton;
 	
 	private var level_1:FlxButton;
+	private var level_2:FlxSprite;
+	private var level_3:FlxSprite;
+	private var level_4:FlxSprite;
+	private var level_5:FlxSprite;
+	private var level_6:FlxSprite;
+	
 	private var centerCam:FlxCamera;
 	private var scrollTimer: FlxTimer = new FlxTimer();
 	private var cameraMovement: Bool = false;
@@ -106,6 +112,41 @@ class MenuState extends FlxState
 		level_1.scrollFactor.x = 2;
 		level_1.scrollFactor.y = 1;
 		add(level_1);
+		
+		// Creates the button that goes to level 2 on click
+		level_2 = new FlxSprite( 512, 192);
+		level_2.loadGraphic("assets/images/GR_Icon.png");
+		level_2.scrollFactor.x = 2;
+		level_2.scrollFactor.y = 1;
+		add(level_2);
+		
+		// Creates the button that goes to level 3 on click
+		level_3 = new FlxSprite( 624, 192);
+		level_3.loadGraphic("assets/images/MA_Icon.png");
+		level_3.scrollFactor.x = 2;
+		level_3.scrollFactor.y = 1;
+		add(level_3);
+		
+		// Creates the button that goes to level 4 on click
+		level_4 = new FlxSprite( 400, 296);
+		level_4.loadGraphic("assets/images/EW_Icon.png");
+		level_4.scrollFactor.x = 2;
+		level_4.scrollFactor.y = 1;
+		add(level_4);
+		
+		// Creates the button that goes to level 5 on click
+		level_5 = new FlxSprite( 512, 296);
+		level_5.loadGraphic("assets/images/KR_Icon.png");
+		level_5.scrollFactor.x = 2;
+		level_5.scrollFactor.y = 1;
+		add(level_5);
+		
+		// Creates the button that goes to level 6 on click
+		level_6 = new FlxSprite( 624, 296);
+		level_6.loadGraphic("assets/images/FR_Icon.png");
+		level_6.scrollFactor.x = 2;
+		level_6.scrollFactor.y = 1;
+		add(level_6);
 		
 		// Creates the option and instruction buttons
 		option_btn = new FlxButton (1968, 204, "Options", optionsOnClick);
