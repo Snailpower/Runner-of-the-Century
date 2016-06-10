@@ -133,10 +133,10 @@ class Level_HG extends FlxState
 	
 	private function addBar()
 	{
-		progBar = new FlxBar (250, 160, LEFT_TO_RIGHT, 500, 40);
+		progBar = new FlxBar (136, 160, LEFT_TO_RIGHT, 500, 40);
 		progBar.createImageBar("assets/images/timeline.png", null,FlxColor.TRANSPARENT,FlxColor.TRANSPARENT);
 		
-		barIcon = new FlxSprite (250,160);
+		barIcon = new FlxSprite (136,160);
 		barIcon.loadGraphic("assets/images/timeline_b.png", false);
 		
 		if (SelectState.gender == "male") 
@@ -161,40 +161,40 @@ class Level_HG extends FlxState
 	
 		super.update(elapsed);
 	
-		if (FlxCollision.pixelPerfectCheck (objectOne.object,player.character))
-		{
-			trace ("Object and player collision");
-			//player.character.x = player.character.x - 1;
-			player.character.y = player.character.y - 1;
-			if (player.character.x < objectOne.xLoc)
-			{
-				player.character.x = player.character.x - 1;
-				
-			}
-			
-			if (player.character.x > objectOne.xLoc)
-			{
-				player.character.x = player.character.x + 1;
-			}
-			player.character.velocity.x = 0;
-			player.character.velocity.y = 0;
-			
-		}
+		//if (FlxCollision.pixelPerfectCheck (objectOne.object,player.character))
+		//{
+			//trace ("Object and player collision");
+			////player.character.x = player.character.x - 1;
+			//player.character.y = player.character.y - 1;
+			//if (player.character.x < objectOne.xLoc)
+			//{
+				//player.character.x = player.character.x - 1;
+				//
+			//}
+			//
+			//if (player.character.x > objectOne.xLoc)
+			//{
+				//player.character.x = player.character.x + 1;
+			//}
+			//player.character.velocity.x = 0;
+			//player.character.velocity.y = 0;
+			//
+		//}
 		FlxG.collide(tileMap, player.character);
-		//FlxG.collide(objectGroup, player.character);
+		FlxG.collide(objectGroup, player.character);
 		
 		if (player.character.x <= 640)
 		{
 		
-		barIcon.x = 276 + (0.09 * player.character.x);
+		barIcon.x = 150 + (0.09 * player.character.x);
 		
 		}
 		
 		
 		if (player.character.x >= 640 && player.character.x <= 2328)
 		{
-		progBar.x = (player.character.x - 390);
-		barIcon.x = ((player.character.x - 364) + (0.09 * player.character.x));
+		progBar.x = (player.character.x - 500);
+		barIcon.x = ((player.character.x - 500) + (0.09 * player.character.x));
 		
 		}
 		
